@@ -1,0 +1,21 @@
+#top_div{
+    
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 90%;
+    background-color:#FFAA46;
+    text-align:center;
+    vertical-align: bottom; 
+}
+#ads_background{
+    
+    position: absolute;
+    top: 10%;
+    right: 0;
+    left: 0;
+    background-color:#FFee32;
+    text-align:center;
+    vertical-align: bottom;
+}

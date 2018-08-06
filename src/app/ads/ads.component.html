@@ -1,0 +1,26 @@
+<p>
+  ads works!
+<div id ="search_div">
+    <form>
+        <div class="form-group">
+          <label for="formGroupExampleInput">Example label</label>
+          <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Another label</label>
+          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
+        </div>
+      </form>
+</div>
+
+<div class = "wrapper">
+  <div *ngFor = "let ad of ads">
+      <ul>
+          <li>ID: {{ad.id}} </li>
+          <li>TYPE: {{ad.type}}</li>
+          </ul>
+          <button (click)="onSave($event)" class="btn btn-primary">hey</button>
+  </div>
+</div>
+
+  
