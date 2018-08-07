@@ -8,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdsComponent implements OnInit {
   tittle = "list of ads";
-  ads;
+  ads$;
   searchText = "hey";
   constructor(adsService:AdsService) { 
-    this.ads = adsService.getAds();
+    this.ads$ = adsService.getAds();
   }
   onSave($event)
   {

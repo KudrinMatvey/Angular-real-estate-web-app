@@ -1,32 +1,76 @@
-<form>
-<div class="form-group">
-  <label for="Property type">Property type</label>
-  <input id = "Property" class="form-control"/>
-</div>
+<div class="row">
+  <div class="col-md-6">
 
- 
-<div class="form-group">
-  <label for="City">City</label>
-  <input id ="City" class="form-control"/>
-</div>
-  
-<div class="form-group">
-  <label for="Area">Area</label>
-  <input id="Area" class="form-control"/>
-</div>
+      <form #f="ngForm" (ngSubmit)=send(f.value)>
+          <div class="form-group">
+            <label for="property type">Property type</label>
+            <select #property ngModel name="property" id = "property" class="form-control">
+              <option value = "house">House</option>
+              <option value="apartament">Apartament</option>
+              <option value="studio">Studio</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+              <label for="city">City</label>
+              <input #city ngModel name="city" id ="cit" class="form-control"/>
+            </div>
 
-<div class="form-group">
-  <label for="Floor">Floor</label>
-  <input id = "Floor"class="form-control"/>
+            <div class="form-group">
+                <label for="area">Area</label>
+                <input #area ngModel name="area" id="area"  class="form-control"/>
+              </div>
+
+          <div class="form-group" >
+              <label for="number of rooms">Number of rooms</label>
+              <select #rooms ngModel name="rooms" id = "number_of_rooms" class="form-control">
+                <option value = "1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div> 
+          
+          
+          <div class="form-group">
+            <label for="floor">Floor</label>
+            <input #floor ngModel name="floor" id = "floor" type = "number"class="form-control" />
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <input #description ngModel name="description" id ="description" class="form-control"/>
+          </div>
+          <div class="form-group">  
+              <label for="price">Price</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">RUB </span>
+                    </div>  
+                  <input #price ngModel name="price" id ="price" type="number" class="form-control">
+                </div>
+            </div>
+          <div class="form-group">
+            <label for="image Url">Image Url</label>
+            <input #imageURL ngModel name="imageURL" id = "image_url"class="form-control">
+          </div>
+          <button class="btn btn-primary" type="submit">Save</button>
+           
+          </form>
+  </div>
+  <div  class="col-md-6">
+      <div *ngIf="property.value || city.value || area.value || description.value || price.value || rooms.value || floor.value" class="card" style="width: 18rem;">
+          <img class="card-img-top" [src]="imageURL.value" alt="">
+          <div class="card-body">
+            <p *ngIf="description.value" class="card-text">Description: {{description.value}}</p>
+            <p *ngIf="property.value" class="card-text">Property: {{property.value}}</p>
+            <p *ngIf="city.value" class="card-text">City: {{city.value}}</p>
+            <p *ngIf="area.value" class="card-text">Area: {{area.value}}</p>
+            <p *ngIf="price.value" class="card-text">Price: {{ price.value | currency:'RUB'}} </p>
+            <p *ngIf="rooms.value" class="card-text">Rooms: {{rooms.value}}</p>
+            <p *ngIf="floor.value" class="card-text">Floor: {{floor.value}}</p>
+            
+          </div>
+        </div>  
+  </div>
 </div>
-<div class="form-group">
-  <label for="Description">Description</label>
-  <input id ="Description" class="form-control"/>
-</div>
-<div class="form-group">
-  <label for="Image Url">Image Url</label>
-  <input id = "Image_Url"class="form-control">
-</div>
-      
- 
-</form>
