@@ -14,6 +14,7 @@ import { AdComponent } from './ad/ad.component';
 import { UserPageComponent } from './user-page/user-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserAdsComponent } from './user-ads/user-ads.component';
+// import { DataTableModule } from 'angular-4-data-table';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { UserAdsComponent } from './user-ads/user-ads.component';
     BrowserModule,
     NgbModule.forRoot(),
     FormsModule,
+    // DataTableModule,
     RouterModule.forRoot([
       {path:'' ,component :HomeComponent},
       {path:'user' ,component :UserPageComponent},

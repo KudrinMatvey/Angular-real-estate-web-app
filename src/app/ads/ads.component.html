@@ -1,3 +1,82 @@
+<!-- <data-table
+[items]="items",
+[itemCount]="itemCount",
+(reload)="reloadItems(event$)">
+
+<data-table-column
+[property]="'picture'",
+[header]="'Picture'",
+[resizable]="true",
+[sortable]='true'
+>
+</data-table-column>
+
+<data-table-column
+[property]="'type'",
+[header]="'Type'",
+[resizable]="true",
+[sortable]='true'
+>
+</data-table-column>
+
+<data-table-column
+[property]="'city'",
+[header]="'City'",
+[resizable]="true",
+[sortable]='true'
+>
+</data-table-column>
+
+<data-table-column
+[property]="'area'",
+[header]="'Area'",
+[resizable]="true",
+[sortable]='true'
+>
+</data-table-column>
+
+<data-table-column
+[property]="'floor'",
+[header]="'Floor'",
+[resizable]="true",
+[sortable]='true'
+>
+</data-table-column>
+
+<data-table-column
+[property]="'description'",
+[header]="'Description'",
+[resizable]="true",
+[sortable]='true'
+>
+</data-table-column>
+
+<data-table-column
+[property]="'price'",
+[header]="'Price'",
+[resizable]="true",
+[sortable]='true'
+>
+<ng-template #data-table-cell let-items="ad">
+  {{ad.price |currency:'RUB'}}
+</ng-template>
+</data-table-column>
+
+<data-table-column
+[property]="'edit'",
+[header]="'Edit'",
+>
+<ng-template #data-table-cell let-items="ad">
+  <a [routerLink]="['/editAd',ad.id]">Edit</a>
+</ng-template>
+</data-table-column>
+
+
+
+
+
+</data-table> -->
+
 <table class="table">
 <thead>
   <tr>
