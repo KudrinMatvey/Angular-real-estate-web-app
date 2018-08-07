@@ -37,7 +37,8 @@ import { UserAdsComponent } from './user-ads/user-ads.component';
       {path:'ad' ,component :AdComponent},   
       {path:'ads' ,component :UserAdsComponent},   
       {path:'bids' ,component :UserBidsComponent}, 
-      {path:'newAd', component:AdFormComponent}  
+      {path:'newAd', component:AdFormComponent},  
+      {path:'editAd/:id', component:AdFormComponent},  
     ])
   ],
   providers: [AdsService,BsNavbarService],

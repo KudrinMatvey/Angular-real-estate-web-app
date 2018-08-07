@@ -1,27 +1,34 @@
-<p>
-  ads works!
-<div id ="search_div">
-    <form>
-        <div class="form-group">
-          <!-- <label for="formGroupExampleInput">Example label</label> -->
-                <input [(ngModel)] = "searchText" [ngModelOptions]="{standalone: true}" (keyup.enter)="onKeyUp()"  />
-
-        </div>
-        <!-- <div class="form-group">
-          <label for="formGroupExampleInput2">Another label</label>
-          <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input">
-        </div> -->
-      </form>
-</div>
-
-<div class = "wrapper">
-  <div *ngFor = "let ad of ads">
-      <ul>
-          <li>ID: {{ad.id}} </li>
-          <li>TYPE: {{ad.type}}</li>
-          </ul>
-          <button (click)="onSave($event)" class="btn btn-primary">hey</button>
-  </div>
-</div>
+<table class="table">
+<thead>
+  <tr>
+    <td></td>
+    <td>Type</td>
+    <td>City</td>
+    <td>Area</td>
+    <td>Rooms</td>
+    <td>Floor</td>
+    <td>Description</td>
+    <td>Price</td>
+    <td></td>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let ad of ads$ ">
+    <td>
+      <img [src]="ad.imageURL" alt="">
+    </td>
+    <td>{{ad.property}}</td>
+    <td>{{ad.city}}</td>
+    <td>{{ad.area}}</td>
+    <td>{{ad.rooms}}</td>
+    <td>{{ad.floor}}</td>
+    <td>{{ad.description}}</td>
+    <td>{{ad.price}}</td>
+    <td>
+      <a [routerLink]="['/editAd',ad.id]">Edit</a>
+    </td>
+  </tr>
+</tbody>
+</table>
 
   
