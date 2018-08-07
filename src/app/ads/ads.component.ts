@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class AdsComponent implements OnInit {
   tittle = "list of ads";
   ads;
+  searchText = "hey";
   constructor(adsService:AdsService) { 
     this.ads = adsService.getAds();
   }
@@ -16,7 +17,10 @@ export class AdsComponent implements OnInit {
   {
     console.log("hey",$event);
   }
-
+onKeyUp()
+{
+  console.log(this.searchText);
+}
   ngOnInit() {
   }
 
