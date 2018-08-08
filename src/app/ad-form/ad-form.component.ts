@@ -16,7 +16,7 @@ export class AdFormComponent implements OnInit {
   // floor;
   // desc;
   // img;
-  ad={"id":"-1"};
+  ad={"id":"-1","property":"null"};
   err;
   constructor(
     private adService:AdsService,
@@ -29,7 +29,7 @@ export class AdFormComponent implements OnInit {
   }
 
   send(ad){
-    if(ad.property && ad.city && ad.area && ad.description && ad.price && ad.rooms && ad.floor) {
+    if(ad.property && ad.city && ad.area &&  ad.price && ad.rooms && ad.floor) {
       this.adService.saveAd(ad);
       this.router.navigate(['/'])
    }

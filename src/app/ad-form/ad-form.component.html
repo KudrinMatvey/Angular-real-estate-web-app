@@ -4,26 +4,54 @@
 
       <div class="form-group">
         <label for="property type">Property type</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+              <ng-template>
+              <span *ngIf="property.value == 'null'" class="input-group-text value-invalid"></span>
+              <span  *ngIf=" property.value == 'house'"   class="input-group-text value-valid">🏠</span>
+              <span  *ngIf=" property.value != 'house'"   class="input-group-text value-valid">🏢</span>
+            </ng-template>
+            </div>
+            
         <select #property [(ngModel)] = "ad.property" name="property" id = "property" class="form-control">
           <option value = "house">House</option>
           <option value="apartament">Apartament</option>
           <option value="studio">Studio</option>
         </select>
+        </div>
       </div>
       
       <div class="form-group">
           <label for="city">City</label>
           <!-- Сделать автокомплит -->
+          <div class="input-group">
+          <div class="input-group-prepend">
+            <span  *ngIf="city.value"   class="input-group-text value-valid"> </span>
+            <span *ngIf="!city.value" class="input-group-text value-invalid"> </span>
+          </div>
           <input #city [(ngModel)] = "ad.city" name="city" id ="cit" class="form-control"/>
         </div>
+      </div>   
 
         <div class="form-group">
             <label for="area">Area</label>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                  <span  *ngIf="area.value"   class="input-group-text value-valid"> </span>
+                  <span *ngIf="!area.value" class="input-group-text value-invalid"> </span>
+                </div>
+                
             <input #area [(ngModel)] = "ad.area" name="area" id="area"  class="form-control"/>
+            </div>
           </div>
 
       <div class="form-group" >
           <label for="number of rooms">Number of rooms</label>
+          <div class="input-group">
+              <div class="input-group-prepend">
+                <span  *ngIf="rooms.value"   class="input-group-text value-valid"> </span>
+                <span *ngIf="!rooms.value" class="input-group-text value-invalid"> </span>
+              </div>
           <select #rooms [(ngModel)] = "ad.rooms" name="rooms" id = "number_of_rooms" class="form-control">
             <option value = "1">1</option>
             <option value="2">2</option>
@@ -31,15 +59,28 @@
             <option value="4">4</option>
             <option value="5">5</option>
           </select>
-        </div>         
+        </div>    
+        </div>     
       
       <div class="form-group">
         <label for="floor">Floor</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+              <span  *ngIf="floor.value"   class="input-group-text value-valid"> </span>
+              <span *ngIf="!floor.value" class="input-group-text value-invalid"> </span>
+            </div>
+            
         <input #floor [(ngModel)] = "ad.floor" name="floor" id = "floor" type = "number"class="form-control" />
       </div>
-
+    </div>
       <div class="form-group">
         <label for="description">Description</label>
+        <!-- <div class="input-group">
+            <div class="input-group-prepend">
+              <span  *ngIf="city.value"   class="input-group-text value-valid"> </span>
+              <span *ngIf="!city.value" class="input-group-text value-invalid"> </span>
+            </div> -->
+            
         <input #description [(ngModel)] = "ad.description" name="description" id ="description" class="form-control"/>
       </div>
       
@@ -47,7 +88,8 @@
           <label for="price">Price</label>
           <div class="input-group">
               <div class="input-group-prepend">
-                <span class="input-group-text">RUB </span>
+                  <span  *ngIf="price.value"   class="input-group-text value-valid"> RUB</span>
+                  <span *ngIf="!price.value" class="input-group-text value-invalid"> RUB</span>
               </div>  
             <input #price [(ngModel)] = "ad.price" name="price" id ="price" type="number" class="form-control">
           </div>

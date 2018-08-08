@@ -6,4 +6,10 @@ select{
     border-radius: 12px
     
 }
+.value-valid{
+    background-color: lightgreen;
+}
+.value-invalid{
+    background-color: rgba(200, 0, 0, 0.7);
+}
 

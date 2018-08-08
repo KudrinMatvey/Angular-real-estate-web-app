@@ -16,7 +16,7 @@ export class AdsComponent implements OnInit {
   items:Ad[]= [];//not needed
   searchText = "hey";
   public filterQuery = "";
-  public rowsOnPage = 10;
+  public rowsOnPage = 5;
   public sortBy = "type";
   public sortOrder = "asc";
 
