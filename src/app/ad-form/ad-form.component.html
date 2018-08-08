@@ -98,7 +98,19 @@
     </form>
   </div>
   <div  class="col-md-6">
-  <ad-card *ngIf="property.value || city.value || area.value || description.value || price.value || rooms.value || floor.value" [show-actions]="false" [ad]="ad">
-  </ad-card> 
-      </div>
+      <div *ngIf="property.value || city.value || area.value || description.value || price.value || rooms.value || floor.value" class="card" style="width: 18rem;">
+        <img class="card-img-top" [src]="imageURL.value" alt="">
+        <div class="card-body">
+          
+          <p *ngIf="property.value" class="card-text">Property: {{property.value}}</p>
+          <p *ngIf="city.value" class="card-text">City: {{city.value}}</p>
+          <p *ngIf="area.value" class="card-text">Area: {{area.value}}</p>
+          <p *ngIf="rooms.value" class="card-text">Rooms: {{rooms.value}}</p>
+          <p *ngIf="floor.value" class="card-text">Floor: {{floor.value}}</p>
+          <p *ngIf="price.value" class="card-text">Price: {{ price.value | currency:'RUB'}} </p>
+          <p *ngIf="description.value" class="card-text">Description: {{description.value}}</p>
+          
+        </div>
+        </div>  
+  </div>
 </div>

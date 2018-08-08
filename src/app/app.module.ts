@@ -15,7 +15,6 @@ import { UserPageComponent } from './user-page/user-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserAdsComponent } from './user-ads/user-ads.component';
 import { DataTableModule } from 'angular-6-datatable';
-import { AdCardComponent } from './ad-card/ad-card.component';
 
 @NgModule({
   declarations: [
@@ -27,8 +26,7 @@ import { AdCardComponent } from './ad-card/ad-card.component';
     AdComponent,
     UserPageComponent,
     UserAdsComponent,
-    AdFormComponent,
-    AdCardComponent
+    AdFormComponent
   ],
   imports: [
     BrowserModule,
