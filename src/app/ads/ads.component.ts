@@ -11,15 +11,22 @@ import { Ad } from '../models/ad';
 export class AdsComponent {
   ads$;
   ad={};
- constructor(private adService:AdsService)
- {
-  this.ads$ = adService.getAds();
+ constructor(private adService:AdsService ) {
+  this.getAll();
+ }
+ getAll(){
+  this.ads$ = this.adService.getAds();
  }
  send(){
    this.adService.sendQuery(this.ad);
  }
- reset()
- {
+ reset() {
    this.ad={};
+   this.getAll();
  }
+ find(){
+   this.ads$ = this.adService.findAndReturnAds(this.ad);
+   
+ }
+
 }
