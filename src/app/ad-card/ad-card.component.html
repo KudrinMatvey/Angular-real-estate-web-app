@@ -1,0 +1,20 @@
+<div class="card">
+<img class="card-img-top" [src]="ad.imageURL" alt="">
+<div class="card-body">
+                  
+  <p  class="card-text">Property: {{ad.property}}</p>
+  <p  class="card-text">City: {{ad.city}}</p>
+  <p  class="card-text">Area: {{ad.area}}</p>
+  <p  class="card-text">Rooms: {{ad.rooms}}</p>
+  <p  class="card-text">Floor: {{ad.floor}}</p>
+  <p  class="card-text">Price: {{ad.price | currency:'RUB'}} </p>
+  <!-- <p  class="card-text">Description: {{ad.description}}</p> -->
+  
+</div>
+<div *ngIf="showActions" class="card-footer">
+  <button class="btn btn-primary btn-block">
+  Last order:{{ad.price | currency:'RUB'}} <br/>See all orders
+  <!--TODO: поменять на ласт прайс -->
+  </button>
+</div>
+</div>

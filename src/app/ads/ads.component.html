@@ -1,6 +1,8 @@
 <div class="row">
-  <div class="col-3">
- <form #f="ngForm" (ngSubmit)=send(f.value)>
+  
+  <div class="col-lg-3 col-sm-4">
+      <div class="sticky-top">
+    <form #f="ngForm" (ngSubmit)=send(f.value)>
         <ul class="list-group">
             <li class="list-group-item">
                 <div class="form-group">
@@ -60,35 +62,28 @@
               <li class="list-group-item">
                   <div class="form-group">
                     <label for="price">Price</label>
+                    <!-- TODO поменять на слайдер -->
                     <div class="input-group">
                       <input #price [(ngModel)] = "ad.price" name="price" id ="price" type="number" class="form-control">
                   </div>
                   </div>
               </li>
             </ul>
-        <button class="btn btn-primary" >Find</button>
+            <div class="card-footer">
+               
+              
+        <button (click) = "find()" class="btn btn-primary" >Find</button>
         <button (click) ="reset()" class="btn btn-light" type="button">Reset</button>
+      </div>
       </form> 
     </div>
-    
-  <div class="col-9">
+  </div>
+  <div class=" col-lg-9 col-sm-8">
       <div class="row ">
           <ng-container *ngFor="let ad of ads$;let i = index" class="card" style="width: 18rem;">
-            <div class="col">
-                <img class="card-img-top" [src]="ad.imageURL" alt="">
-                <div class="card-body">
-                  
-                  <p  class="card-text">Property: {{ad.property}}</p>
-                  <p  class="card-text">City: {{ad.city}}</p>
-                  <p  class="card-text">Area: {{ad.area}}</p>
-                  <p  class="card-text">Rooms: {{ad.rooms}}</p>
-                  <p  class="card-text">Floor: {{ad.floor}}</p>
-                  <p  class="card-text">Price: {{ad.price | currency:'RUB'}} </p>
-                  <p  class="card-text">Description: {{ad.description}}</p>
-                  
-                </div>
+            <div class="col-lg-4 col-md-6 col-sm-12">
+              <ad-card [ad]="ad" [show-actions]="true"></ad-card>
             </div>
-            <div *ngIf ="(i+1)%3===0"class="w-100" ></div>
           </ng-container>
         </div>
   </div>

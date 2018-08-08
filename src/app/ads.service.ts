@@ -1,3 +1,4 @@
+import { Ad } from './models/ad';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -143,5 +144,53 @@ console.log(ad);
   saveAd(ad)
   {
     console.log("save" + ad);
+  }
+  findAndReturnAds(ad){
+  return[
+{
+  "id": "2",
+  "area": "24",
+  "city": "SPB",
+  "description": "keke",
+  "floor": "40",
+  "imageURL": "null",
+  "price": "0",
+  "property": "house",
+  "rooms": "4"
+},
+{
+  "id": "3",
+  "area": "23444",
+  "city": "NYwe",
+  "description": "hey",
+  "floor": "41",
+  "imageURL": "https://i.ytimg.com/vi/UQBK4bSftBs/maxresdefault.jpg",
+  "price": "10",
+  "property": "house",
+  "rooms": "4"
+},
+{
+  "id": "4",
+  "area": "53234",
+  "city": "N324Y",
+  "description": "hey",
+  "floor": "34",
+  "imageURL": "https://i.ytimg.com/vi/4TlmQbGkkgI/hqdefault.jpg",
+  "price": "4330",
+  "property": "house",
+  "rooms": "344"
+},
+{
+  "id": "5",
+  "area": "235",
+  "city": "NkY",
+  "description": "dfhey",
+  "floor": "44",
+  "imageURL": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReNhongy3IhocAMupKXEXDWrBd-fv95olaMMdl8G7j7drusQ-_",
+  "price": "04",
+  "property": "house",
+  "rooms": "54"
+}
+]
   }
 }
