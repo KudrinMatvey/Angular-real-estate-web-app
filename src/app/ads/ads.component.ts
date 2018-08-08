@@ -8,44 +8,18 @@ import { Ad } from '../models/ad';
   templateUrl: './ads.component.html',
   styleUrls: ['./ads.component.css']
 })
-export class AdsComponent implements OnInit {
-  tittle = "list of ads";
+export class AdsComponent {
   ads$;
-  data:any[];
-  itemCount:number;
-  items:Ad[]= [];//not needed
-  searchText = "hey";
-  public filterQuery = "";
-  public rowsOnPage = 5;
-  public sortBy = "type";
-  public sortOrder = "asc";
-
-  // tableResource:DataTableResource<Ad>;
-  constructor(adsService:AdsService) { 
-    this.ads$ = adsService.getAds();
-    this.initializeTable(this.ads$);
-  }
-
-  private initializeTable(ads:Ad[]){
-    // this.tableResource = new DataTableResource(ads);
-    // this.tableResource.query({offset:0}).then(items=>this.items = items);
-    // this.tableResource.count().then(count=>this.itemCount=count)
-      this.data = ads;
-
-  }
-  reloadItems(params){
-    // if(!this.tableResource) return;
-    // this.tableResource.query(params).then(items=>this.items = items);
-    // 
-  }
-  onSave($event){
-    console.log("hey",$event);
-  }
-onKeyUp(){
-  console.log(this.searchText);
-}
-  ngOnInit() {
-   
-  }
-
+  ad={};
+ constructor(private adService:AdsService)
+ {
+  this.ads$ = adService.getAds();
+ }
+ send(){
+   this.adService.sendQuery(this.ad);
+ }
+ reset()
+ {
+   this.ad={};
+ }
 }

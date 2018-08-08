@@ -1,187 +1,96 @@
-<!-- <data-table
-[items]="items",
-[itemCount]="itemCount",
-(reload)="reloadItems(event$)">
-
-<data-table-column
-[property]="'picture'",
-[header]="'Picture'",
-[resizable]="true",
-[sortable]='true'
->
-</data-table-column>
-
-<data-table-column
-[property]="'type'",
-[header]="'Type'",
-[resizable]="true",
-[sortable]='true'
->
-</data-table-column>
-
-<data-table-column
-[property]="'city'",
-[header]="'City'",
-[resizable]="true",
-[sortable]='true'
->
-</data-table-column>
-
-<data-table-column
-[property]="'area'",
-[header]="'Area'",
-[resizable]="true",
-[sortable]='true'
->
-</data-table-column>
-
-<data-table-column
-[property]="'floor'",
-[header]="'Floor'",
-[resizable]="true",
-[sortable]='true'
->
-</data-table-column>
-
-<data-table-column
-[property]="'description'",
-[header]="'Description'",
-[resizable]="true",
-[sortable]='true'
->
-</data-table-column>
-
-<data-table-column
-[property]="'price'",
-[header]="'Price'",
-[resizable]="true",
-[sortable]='true'
->
-<ng-template #data-table-cell let-items="items">
-  {{items.price |currency:'RUB'}}
-</ng-template>
-</data-table-column>
-
-<data-table-column
-[property]="'edit'",
-[header]="'Edit'",
->
-<ng-template #data-table-cell let-items="item">
-  <a [routerLink]="['/editAd',item.id]">Edit</a>
-</ng-template>
-</data-table-column>
-
-
-
-
-
-</data-table>  -->
-
- <!-- <table class="table">
-<thead>
-  <tr>
-    <td></td>
-    <td>Type</td>
-    <td>City</td>
-    <td>Area</td>
-    <td>Rooms</td>
-    <td>Floor</td>
-    <td>Description</td>
-    <td>Price</td>
-    <td></td>
-  </tr>
-</thead>
-<tbody>
-  <tr *ngFor="let ad of ads$ ">
-    <td>
-      <img [src]="ad.imageURL" alt="">
-    </td>
-    <td>{{ad.property}}</td>
-    <td>{{ad.city}}</td>
-    <td>{{ad.area}}</td>
-    <td>{{ad.rooms}}</td>
-    <td>{{ad.floor}}</td>
-    <td>{{ad.description}}</td>
-    <td>{{ad.price}}</td>
-    <td>
-      <a [routerLink]="['/editAd',ad.id]">Edit</a>
-    </td>
-  </tr>
-</tbody>
-</table> -->
-
 <div class="row">
-  <div class="col-xs-2">
-  <label class="label-control">Rows on page</label>
-  <select class="form-control input-sm" [(ngModel)]="rowsOnPage">
-    <option [ngValue]="5">5</option>
-    <option [ngValue]="10">10</option>
-    <option [ngValue]="20">20</option>
-  </select>
+  <div class="col-3">
+ <form #f="ngForm" (ngSubmit)=send(f.value)>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="form-group">
+                  <label for="property type">Property type</label>
+                  <div class="input-group">
+                    <select #property [(ngModel)] = "ad.property" name="property" id = "property" class="form-control">
+                      <option value = "house">House</option>
+                      <option value="apartament">Apartament</option>
+                      <option value="studio">Studio</option>
+                    </select>
+                </div>
+                </div>
+              </li>
+
+              <li class="list-group-item">
+                  <div class="form-group">
+                    <label for="city">City</label>
+                    <div class="input-group">
+                        <input #city [(ngModel)] = "ad.city" name="city" id ="cit" class="form-control"/>  
+                  </div>
+                  </div>
+              </li>
+
+              <li class="list-group-item">
+                  <div class="form-group">
+                    <label for="area">Area</label>
+                    <div class="input-group">
+                      <input #area [(ngModel)] = "ad.area" name="area" id="area"  class="form-control"/>
+                  </div>
+                  </div>
+              </li>
+
+              <li class="list-group-item">
+                  <div class="form-group">
+                    <label for="rooms">Rooms</label>
+                    <div class="input-group">
+                        <select #rooms [(ngModel)] = "ad.rooms" name="rooms" id = "number_of_rooms" class="form-control">
+                            <option value = "1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                          </select>
+                  </div>
+                  </div>
+              </li>
+
+              <li class="list-group-item">
+                  <div class="form-group">
+                    <label for="floor">Floor</label>
+                    <div class="input-group">
+                        <input #floor [(ngModel)] = "ad.floor" name="floor" id = "floor" type = "number"class="form-control" />
+                  </div>
+                  </div>
+              </li>
+
+              <li class="list-group-item">
+                  <div class="form-group">
+                    <label for="price">Price</label>
+                    <div class="input-group">
+                      <input #price [(ngModel)] = "ad.price" name="price" id ="price" type="number" class="form-control">
+                  </div>
+                  </div>
+              </li>
+            </ul>
+        <button class="btn btn-primary" >Find</button>
+        <button (click) ="reset()" class="btn btn-light" type="button">Reset</button>
+      </form> 
+    </div>
+    
+  <div class="col-9">
+      <div class="row ">
+          <ng-container *ngFor="let ad of ads$;let i = index" class="card" style="width: 18rem;">
+            <div class="col">
+                <img class="card-img-top" [src]="ad.imageURL" alt="">
+                <div class="card-body">
+                  
+                  <p  class="card-text">Property: {{ad.property}}</p>
+                  <p  class="card-text">City: {{ad.city}}</p>
+                  <p  class="card-text">Area: {{ad.area}}</p>
+                  <p  class="card-text">Rooms: {{ad.rooms}}</p>
+                  <p  class="card-text">Floor: {{ad.floor}}</p>
+                  <p  class="card-text">Price: {{ad.price | currency:'RUB'}} </p>
+                  <p  class="card-text">Description: {{ad.description}}</p>
+                  
+                </div>
+            </div>
+            <div *ngIf ="(i+1)%3===0"class="w-100" ></div>
+          </ng-container>
+        </div>
+  </div>
 </div>
-          
 
-<table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage">
- 
-<thead>
-  <tr>
-
-      <th>
-        IMG
-      </th>
-      <th >
-          <mfDefaultSorter by="property">Type</mfDefaultSorter>
-      </th>
-      <th >
-          <mfDefaultSorter by="city">City</mfDefaultSorter>
-      </th>
-      <th >
-          <mfDefaultSorter by="area">Area</mfDefaultSorter>
-      </th>
-
-      <th >
-          <mfDefaultSorter by="rooms">Rooms</mfDefaultSorter>
-      </th>
-      <th >
-          <mfDefaultSorter by="floor">Floor</mfDefaultSorter>
-      </th>
-      <th >
-        Description
-      </th>
-      <th >
-          <mfDefaultSorter by="price">Price</mfDefaultSorter>
-      </th>
-
-      <th >
-          Edit
-      </th>
-
-  </tr>
-</thead>
-<tbody>
-  <tr *ngFor="let item of mf.data ">
-    <td>
-      <img class = "table-img"[src]="item.imageURL" alt="">
-    </td>
-            <td>{{item.property}}</td>
-            <td>{{item.city}}</td>
-            <td>{{item.area}}</td>
-            <td>{{item.rooms}}</td>
-            <td>{{item.floor}}</td>
-            <td>{{item.description}}</td>
-            <td>{{item.price}}</td>
-    <td>
-      <a [routerLink]="['/editAd',item.id]">Edit</a> 
-    </td>
-  </tr>
-</tbody>
-<tfoot>
-    <tr>
-        <td colspan="9">
-            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
-        </td>
-    </tr>
-    </tfoot>
-</table>
-
-  
