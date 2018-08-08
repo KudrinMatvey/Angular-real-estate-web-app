@@ -1,0 +1,16 @@
+<table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="rowsOnPage">
+  <thead>
+   <tr>
+    <!-- <th *ngIf="for=='user'"> Ad</th> -->
+    <th>User</th>
+    <th>Bid</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let bid of mf.data ">
+      <!-- <td *ngIf="for=='user'">{{bid.id}}</td> -->
+      <td>{{bid.user}}</td>
+      <td>{{bid.bid}}</td>
+    </tr>
+  </tbody>
+  </table>

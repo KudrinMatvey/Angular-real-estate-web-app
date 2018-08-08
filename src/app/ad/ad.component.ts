@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Ad } from '../models/ad';
 
 @Component({
-  selector: 'app-ad',
+  selector: 'ad',
   templateUrl: './ad.component.html',
   styleUrls: ['./ad.component.css']
 })
 export class AdComponent implements OnInit {
-
+@Input('ad') ad:Ad;
   constructor() { }
 
   ngOnInit() {
