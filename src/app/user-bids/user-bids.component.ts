@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'user-bids',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserBidsComponent implements OnInit {
 
-  constructor() { }
+  user={"id":""}
+  constructor(private userService:UserService) {
+    this.user.id = userService.getUser().id; 
+   }
 
   ngOnInit() {
   }

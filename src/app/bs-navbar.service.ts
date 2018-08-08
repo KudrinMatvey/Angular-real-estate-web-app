@@ -1,3 +1,4 @@
+import { UserService } from './user.service';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,9 +6,10 @@ import { Injectable } from '@angular/core';
 })
 export class BsNavbarService {
   getUserFirstName(){
-    return "Vasya";
+
+    return this.userService.getUser().fn;
     //return null;
   }
 
-  constructor() { }
+  constructor(private userService:UserService) { }
 }

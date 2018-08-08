@@ -6,7 +6,7 @@
               <span aria-hidden="true">&times;</span>
             </button> 
           </div>
-          <div class="row" padding-left="10px">
+          <div class="row">
             
           <div class="col-6"><p  class="card-text">Property: {{ad.property}}</p>
             <p  class="card-text">City: {{ad.city}}</p>
@@ -34,4 +34,6 @@
           </div>
         </ng-template>
         
-        <button class="btn btn-outline-primary mb-2 mr-2" (click)="openLg(content)">Open</button>
+        <div (click)="openLg(content)"><ng-content>
+          </ng-content>
+        </div>
