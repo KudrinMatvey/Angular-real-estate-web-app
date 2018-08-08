@@ -1,28 +1,37 @@
-<!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary" data-toggle="modal" [attr.data-target]="['#',ad.id]"> -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mmodal">
-    Launch demo modal
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade"  tabindex="-1" role="dialog" [attr.aria-labelledby]="mmodal" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Ad</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-         <bids [searchId]="ad.id" [for]="Ad">
-           </bids>
 
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
+      <ng-template #content let-c="close" let-d="dismiss">
+          <div class="modal-header">
+            <h4 class="modal-title">Ad</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+              <span aria-hidden="true">&times;</span>
+            </button> 
+          </div>
+          <div class="row" padding-left="10px">
+            
+          <div class="col-6"><p  class="card-text">Property: {{ad.property}}</p>
+            <p  class="card-text">City: {{ad.city}}</p>
+            <p  class="card-text">Area: {{ad.area}}</p>
+            <p  class="card-text">Rooms: {{ad.rooms}}</p>
+            <p  class="card-text">Floor: {{ad.floor}}</p>
+            <p  class="card-text">Price: {{ad.price | currency:'RUB'}} </p>
+            </div>
+            <div class="col-6"> <img class="card-img-top" [src]="ad.imageURL" alt=""></div>
+         
+          </div>
+               <div class="row">
+                 <div class="col"><p  class="card-text">Description: {{ad.description}}</p> 
+                 </div>
+               </div>
+            <div class="row">
+              <div class="col">
+                  <bids [attr.for]="Ad" [attr.id]="ad.id" >
+                    </bids>
+              </div>
+            </div>  
+          
+          <div class="modal-footer">
+            <button type="button" class="btn btn-light" (click)="c('Close click')">Close</button>
+          </div>
+        </ng-template>
+        
+        <button class="btn btn-outline-primary mb-2 mr-2" (click)="openLg(content)">Open</button>

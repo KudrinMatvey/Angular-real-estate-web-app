@@ -2,6 +2,8 @@
 import { AdsService } from './../ads.service';
 import { Component, OnInit } from '@angular/core';
 import { Ad } from '../models/ad';
+
+
 // import { DataTableResource } from 'angular-6-datatable'
 @Component({
   selector: 'ads',
@@ -11,7 +13,7 @@ import { Ad } from '../models/ad';
 export class AdsComponent {
   ads$;
   ad={};
- constructor(private adService:AdsService ) {
+ constructor(private adService:AdsService) {
   this.getAll();
  }
  getAll(){
@@ -28,5 +30,6 @@ export class AdsComponent {
    this.ads$ = this.adService.findAndReturnAds(this.ad);
    
  }
+
 
 }
