@@ -4,7 +4,7 @@
   data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button> -->
-  <button class="btn btn-sm btn-outline-primary mr-2" (click)="acc.toggle('toggle-1')"><img src="/src/pics/menu.png" alt="Menu"></button>
+  <button class="btn btn-sm btn-outline-primary d-lg-none" (click)="acc.toggle('toggle-1')"><img src="/src/pics/menu.png" alt="Menu"></button>
 
   <div class="collapse navbar-collapse " id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
@@ -29,17 +29,21 @@
 
 </nav>
 
-<ngb-accordion  class="d-lg-none"  #acc="ngbAccordion" >
-        
-    
-    <ngb-panel id="toggle-1">
-          <ng-template ngbPanelContent>
-  <div> 
+<ngb-accordion  #acc="ngbAccordion" (click)="acc.toggle('toggle-1')" >      
+  <ngb-panel id="toggle-1">
+      <ng-template ngbPanelTitle>
+          <span> 
+
+          </span>
+        </ng-template>
+    <ng-template ngbPanelContent>
+    <div> 
+
      <ul *ngIf="!user"> 
        <li>login</li> 
        <li>registration</li> 
       </ul> 
-  
+
       <ul *ngIf="user">
         <li><a class="dropdown-item" routerLink="/user">User</a></li>
         <li><a class="dropdown-item" routerLink="/bids">Orders</a></li>
@@ -48,6 +52,6 @@
         <li><a class="dropdown-item" href="#">Log out</a></li>
       </ul> 
     </div>
-          </ng-template>
-      </ngb-panel>
+    </ng-template>
+  </ngb-panel>
 </ngb-accordion>
