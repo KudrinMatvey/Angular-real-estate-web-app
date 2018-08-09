@@ -1,9 +1,18 @@
-<p>
-  user-page works!
-</p>
-<hr/>
+
+
+<ngb-tabset #t="ngbTabset">
+    <ngb-tab id="tab-selectbyid1" title="Bids">
+      <ng-template ngbTabContent>
+        
 <user-bids> </user-bids>
-<br/>
-<hr/>
-<user-ads>
-</user-ads>
+       </ng-template>
+    </ngb-tab>
+    <ngb-tab id="tab-selectbyid2"  title="Ads">
+     
+      <ng-template ngbTabContent>
+          <user-ads>
+            </user-ads>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+  

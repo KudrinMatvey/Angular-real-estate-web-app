@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 import { AdFormComponent } from './ad-form/ad-form.component';
 import { BsNavbarService } from './bs-navbar.service';
 import { AdsService } from './ads.service';
@@ -17,6 +18,9 @@ import { UserAdsComponent } from './user-ads/user-ads.component';
 import { DataTableModule } from 'angular-6-datatable';
 import { AdCardComponent } from './ad-card/ad-card.component';
 import { BidsComponent } from './bids/bids.component';
+import { BidService } from './bid.service';
+import { UserService } from './user.service';
+import { RegistrationComponent } from './registration/registration.component';
 
 
 @NgModule({
@@ -31,7 +35,9 @@ import { BidsComponent } from './bids/bids.component';
     UserAdsComponent,
     AdFormComponent,
     AdCardComponent,
-    BidsComponent
+    LoginComponent,
+    BidsComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -46,9 +52,11 @@ import { BidsComponent } from './bids/bids.component';
       {path:'bids' ,component :UserBidsComponent}, 
       {path:'newAd', component:AdFormComponent},  
       {path:'editAd/:id', component:AdFormComponent},  
+      {path:'login', component:LoginComponent},  
+      {path:'registration', component:RegistrationComponent},  
     ])
   ],
-  providers: [AdsService,BsNavbarService],
+  providers: [AdsService,BsNavbarService,BidService,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
