@@ -1,4 +1,4 @@
-import { BsNavbarService } from '../bs-navbar.service';
+import { BsNavbarService } from '../services/bs-navbar.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

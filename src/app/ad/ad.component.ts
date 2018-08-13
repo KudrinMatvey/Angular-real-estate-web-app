@@ -1,4 +1,4 @@
-import { AdsService } from './../ads.service';
+import { AdService } from '../services/ads.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { Ad } from '../models/ad';
 
@@ -12,9 +12,9 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 export class AdComponent implements OnInit {
 @Input('ad') ad = {};
 @Input('adId') adId:number;
-  constructor(private modalService: NgbModal,private adsService:AdsService ) { 
+  constructor(private modalService: NgbModal,private adService:AdService ) { 
     if(this.adId) 
-    this.ad = adsService.getAd(this.adId);
+    adService.getAd(this.adId).subscribe(ad => this.ad = ad);
   }
 
   ngOnInit() {

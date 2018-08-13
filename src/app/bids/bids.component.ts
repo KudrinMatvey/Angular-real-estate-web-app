@@ -1,4 +1,4 @@
-import { BidService } from './../bid.service';
+import { BidService } from '../services/bid.service';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -9,16 +9,16 @@ import { Component, OnInit, Input } from '@angular/core';
 export class BidsComponent implements OnInit {
 @Input('searchId') id;
 @Input('for') for ;
-data:any[];
+data;
 public filterQuery = "";
 public rowsOnPage = 5;
 public sortBy = "id";
 public sortOrder = "asc";
   constructor(private bidService:BidService) {
     if(this.for == "user") 
-    this.data = bidService.getUserBids(this.id);
+    bidService.getUserBids(this.id).subscribe(response => this.data = response );
     else
-    this.data = bidService.getAdBids(this.id);
+    bidService.getAdBids(this.id).subscribe(response =>this.data = response );
     console.log(this.data);
    }
 

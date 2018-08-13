@@ -1,5 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 
-import { AdsService } from './../ads.service';
+import { AdService } from '../services/ads.service';
 import { Component, OnInit } from '@angular/core';
 import { Ad } from '../models/ad';
 
@@ -10,26 +11,31 @@ import { Ad } from '../models/ad';
   templateUrl: './ads.component.html',
   styleUrls: ['./ads.component.css']
 })
-export class AdsComponent {
+export class AdsComponent implements OnInit{
+  ngOnInit(){
+    this.getAll();
+  }
   ads$;
   ad={};
- constructor(private adService:AdsService) {
-  this.getAll();
- }
+ constructor(private adService:AdService, public http:HttpClient) { }
+
  getAll(){
-  this.ads$ = this.adService.getAds();
+   this.adService.getAds()
+  .subscribe((response)=>{
+    this.ads$ = response;
+  });
  }
- send(){
-   this.adService.sendQuery(this.ad);
- }
+
+
  reset() {
    this.ad={};
    this.getAll();
  }
  find(){
-   this.ads$ = this.adService.findAndReturnAds(this.ad);
-   
- }
-
+  this.adService.findAndReturnAds(this.ad)
+  .subscribe((response)=>{
+    this.ads$=response;
+  });
+}
 
 }

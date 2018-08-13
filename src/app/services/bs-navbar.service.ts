@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class BsNavbarService {
   getUserFirstName(){
 
-    return this.userService.getUser().fn;
+    return this.userService.getFirstName();
     //return null;
   }
 

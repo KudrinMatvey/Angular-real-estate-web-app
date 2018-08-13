@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 
-$primary-color:red;
+$primary-color:yellow;
 
 .card-header {
     padding: 0;
@@ -9,6 +9,6 @@ $primary-color:red;
     background-color: rgba(0, 0, 0, 0);
 }
 .btn-primary {
-    background-color:primary-color;
-    border-color: primary-color;
+    background-color:$primary-color;
+    border-color: $primary-color;
 }

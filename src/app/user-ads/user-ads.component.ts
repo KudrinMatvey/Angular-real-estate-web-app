@@ -1,5 +1,5 @@
 
-import { AdsService } from './../ads.service';
+import { AdService } from '../services/ads.service';
 import { Component, OnInit } from '@angular/core';
 import { Ad } from '../models/ad';
 
@@ -21,7 +21,7 @@ export class UserAdsComponent implements OnInit {
   public sortOrder = "asc";
 
   // tableResource:DataTableResource<Ad>;
-  constructor(adsService:AdsService) { 
+  constructor(adsService:AdService) { 
     this.ads$ = adsService.getUserAds();
     this.initializeTable(this.ads$);
   }
