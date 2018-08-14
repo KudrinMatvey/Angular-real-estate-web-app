@@ -26,7 +26,10 @@ export class AdsComponent implements OnInit{
   });
  }
 
-
+cl()
+{
+  this.getAll();
+}
  reset() {
    this.ad={};
    this.getAll();

@@ -1,6 +1,6 @@
 import { Ad } from '../models/ad';
 import { Injectable,OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserService } from './user.service';
 
@@ -18,7 +18,8 @@ export class AdService {
   }
   getUserAds()
   {
-    return this.http.get('/server/ads/user', this.userService.getId())//TODO
+    const httpParams = new HttpParams().set("id",this.userService.getId());
+    return this.http.get('/server/ads/user', {params:httpParams} )//TODO
   }
   
   getAd(id)

@@ -1,24 +1,28 @@
-import { HttpClient } from '@angular/common/http';
+import { User } from './../models/user';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  user = new Object;
+  user:User;
+  smth:any;
   logIn(user)
   {
-    this.http.post('/server/users/login',{params:user}).subscribe(response=> this.user = response);
+    this.http.post('/server/users/login',{params:user}).subscribe(response=> this.user = <User>response);
     return true;
     // Переделать чтоб возвращало что-то адекватное
   }
   regigter(user){
-    this.http.post('/server/users/register',{params:user}).subscribe(response=> this.user = response);
-
+    this.http.post('/server/users/register',{params:user}).subscribe(response=> this.user = <User>response);
+    return true;
+  }
+  logOut(){
+    this.http.get('/server/users/logout').subscribe(response=> this.user = <User>response);
     return true;
   }
   getUser(){
-    if(this.user)
     return this.user;
   }
   getFirstName(){

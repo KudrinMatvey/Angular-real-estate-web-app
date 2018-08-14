@@ -35,7 +35,7 @@
           <span> 
 
           </span>
-        </ng-template>
+        </ng-template> 
     <ng-template ngbPanelContent>
     <div> 
 
@@ -49,7 +49,7 @@
         <li><a class="dropdown-item button btn-sm " routerLink="/bids">Orders</a></li>
         <li> <a class="dropdown-item button btn-sm " routerLink="/ads">Ads</a></li>
         <div class="dropdown-divider"></div>
-        <li><a class="dropdown-item button btn-sm " href="/logout">Log out</a></li>
+        <li><a class="dropdown-item button btn-sm " (click)="logOut()")>Log out</a></li>
       </ul> 
     </div>
     </ng-template>

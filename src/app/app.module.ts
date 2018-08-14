@@ -21,7 +21,9 @@ import { BidsComponent } from './bids/bids.component';
 import { BidService } from './services/bid.service';
 import { UserService } from './services/user.service';
 import { RegistrationComponent } from './registration/registration.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from 'src/auth.interceptor';
+import { TokenService } from './services/token.service';
 
 
 @NgModule({
@@ -58,7 +60,16 @@ import { HttpClientModule } from '@angular/common/http';
       {path:'registration', component:RegistrationComponent},  
     ])
   ],
-  providers: [AdService,BsNavbarService,BidService,UserService],
+  providers: [ AdService,
+    BsNavbarService,
+    BidService,
+    UserService,
+    TokenService
+  {
+    provide:HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi:true
+  } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

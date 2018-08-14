@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { UserService } from './user.service';
 import { Injectable } from '@angular/core';
 
@@ -7,7 +7,8 @@ import { Injectable } from '@angular/core';
 })
 export class BidService {
   getUserBids(id){
-    return this.http.get('/server/bids/user', this.userService.getId());//TODO
+    const httpParams = new HttpParams ().set("id",this.userService.getId());
+    return this.http.get('/server/bids/user', {params:httpParams} );//TODO
   }
   getAdBids(id){
     return this.http.get('/server/bids/ad', id);

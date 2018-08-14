@@ -7,7 +7,7 @@
   </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let bid of mf.data ">
+    <tr *ngFor="let bid of mf.data | async ">
       <ng-container>
       <td *ngIf="for=='user'"><ad [adId]=bid.id>See {{bid.id}}</ad></td>
       </ng-container>
