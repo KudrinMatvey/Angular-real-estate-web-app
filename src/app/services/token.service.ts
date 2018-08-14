@@ -4,10 +4,10 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class TokenService {
-  private _TOKEN:string;
+  private _TOKEN="";
   constructor() { }
    get TOKEN():string{
-    return this.TOKEN;
+    return this._TOKEN;
   }
   set TOKEN(token:string){
     this._TOKEN = token;

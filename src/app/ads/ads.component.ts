@@ -5,7 +5,6 @@ import { Component, OnInit } from '@angular/core';
 import { Ad } from '../models/ad';
 
 
-// import { DataTableResource } from 'angular-6-datatable'
 @Component({
   selector: 'ads',
   templateUrl: './ads.component.html',
@@ -26,10 +25,10 @@ export class AdsComponent implements OnInit{
   });
  }
 
-cl()
-{
-  this.getAll();
-}
+// cl()
+// {
+//   this.getAll();
+// }
  reset() {
    this.ad={};
    this.getAll();

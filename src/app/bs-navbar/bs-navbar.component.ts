@@ -11,7 +11,8 @@ export class BsNavbarComponent {
 
   user:string;
   constructor(service:BsNavbarService,private userService:UserService) {
-    this.user = service.getUserFirstName();
+    this.user = "vasya"; 
+    // service.getUserFirstName();
    }
 
   logOut(){

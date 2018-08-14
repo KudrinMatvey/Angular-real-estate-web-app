@@ -9,6 +9,4 @@ import { Ad } from '../models/ad';
 export class AdCardComponent  {
 @Input('ad') ad:Ad;
 @Input('show-actions') showActions = true; 
-  constructor() { }
-
 }

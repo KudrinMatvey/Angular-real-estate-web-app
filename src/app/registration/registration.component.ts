@@ -18,7 +18,7 @@ export class RegistrationComponent  {
   send(user)
   {
     if(this.userService.regigter(user))
-    this.router.navigate(['']);
+    this.router.navigate(['login']);
   }
 
 }

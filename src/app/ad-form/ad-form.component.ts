@@ -8,15 +8,8 @@ import { AdService } from '../services/ads.service';
   styleUrls: ['./ad-form.component.css']
 })
 export class AdFormComponent implements OnInit {
-  // property;
-  // type;
-  // city;
-  // area;
-  // price;
-  // floor;
-  // desc;
-  // img;
-   ad = {"id":"-1","property":"null"};
+
+  ad = {"id":"-1","property":"null"};
   err;
   constructor(
     private adService:AdService,

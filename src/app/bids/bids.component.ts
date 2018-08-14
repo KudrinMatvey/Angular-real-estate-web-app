@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './bids.component.html',
   styleUrls: ['./bids.component.css']
 })
-export class BidsComponent implements OnInit {
+export class BidsComponent  {
 @Input('searchId') id;
 @Input('for') for ;
 data;
@@ -22,7 +22,5 @@ public sortOrder = "asc";
     console.log(this.data);
    }
 
-  ngOnInit() {
-  }
 
 }
