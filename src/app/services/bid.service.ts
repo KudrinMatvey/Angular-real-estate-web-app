@@ -13,6 +13,9 @@ export class BidService {
   getAdBids(id){
     return this.http.get('/server/bids/ad', id);
   }
-
+  sendAdBid(price,id){
+    let httpParams = new HttpParams().set("id",id).set("price",price);
+    this.http.post('/server/bids/ad/addOrder',httpParams).subscribe();
+  }
   constructor(private http:HttpClient,private userService:UserService) { }
 }

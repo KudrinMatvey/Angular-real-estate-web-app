@@ -10,7 +10,7 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./ad.component.css']
 })
 export class AdComponent  {
-@Input('ad') ad = {};
+@Input('ad') ad;
 @Input('adId') adId:number;
   constructor(private modalService: NgbModal,private adService:AdService ) { 
     if(this.adId) 

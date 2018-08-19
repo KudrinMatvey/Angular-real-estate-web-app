@@ -1,0 +1,18 @@
+<button>
+<div class="row">
+  <button class="btn btn-primary btn-block" *ngIf ="!disabled" (click)="disabled = !disabled">
+    Add bid
+  </button>
+  <div *ngIf = "disabled" >
+  <form #f="ngForm" (ngSubmit)=send(f.value) >
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text"> RUB: </span>
+      </div>
+      <input #order type="number"  [(ngModel)] = "price" name="price" class="form-control"/>
+      <button class="btn btn-secondary"> submit </button>
+      <button type="reset" class="btn danger" (click)="disabled = !disabled"> close </button>
+    </div>  
+  </form>
+</div>
+</div>

@@ -1,3 +1,4 @@
+import { Ad } from './../models/ad';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdService } from '../services/ads.service';
@@ -9,8 +10,8 @@ import { AdService } from '../services/ads.service';
 })
 export class AdFormComponent implements OnInit {
 
-  ad = {"id":"-1","property":"null"};
-  err;
+  ad = new Ad(-1);
+  
   constructor(
     private adService:AdService,
     private router:Router,
@@ -33,7 +34,7 @@ export class AdFormComponent implements OnInit {
    else alert("Please enter all info");
 }
    delete(){
-    if(this.ad.id != "-1")  
+    if(this.ad.id != -1)  
     if(confirm("Are you sure?"))
       {
       this.adService.deleteAd(this.ad.id).subscribe();

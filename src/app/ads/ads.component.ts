@@ -15,8 +15,11 @@ export class AdsComponent implements OnInit{
     this.getAll();
   }
   ads$;
-  ad={};
- constructor(private adService:AdService, public http:HttpClient) { }
+  ad = new Ad();
+  
+ constructor(private adService:AdService, public http:HttpClient) { 
+   
+ }
 
  getAll(){
    this.adService.getAds()
@@ -30,7 +33,7 @@ export class AdsComponent implements OnInit{
 //   this.getAll();
 // }
  reset() {
-   this.ad={};
+   this.ad = new Ad();
    this.getAll();
  }
  find(){

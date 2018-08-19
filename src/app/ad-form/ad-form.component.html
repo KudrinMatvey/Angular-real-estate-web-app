@@ -91,7 +91,11 @@
 
       <div class="form-group">
         <label for="image Url">Image Url</label>
-        <input #imageURL [(ngModel)] = "ad.imageURL" name="imageURL" id = "image_url"class="form-control">
+        <input #imageURL0 [(ngModel)] = "ad.imageURL[0]" name="imageURL0" id = "image_url0"class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="image Url">Image Url</label>
+        <input #imageURL1 [(ngModel)] = "ad.imageURL[1]" name="imageURL1" id = "image_url1s"class="form-control">
       </div>
       <button class="btn btn-primary" >Save</button>
       <button (click) ="delete()" class="btn btn-danger" type="button">Delete</button>

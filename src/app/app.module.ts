@@ -24,6 +24,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from 'src/auth.interceptor';
 import { TokenService } from './services/token.service';
+import { AddOrderComponent } from './add-order/add-order.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { TokenService } from './services/token.service';
     AdCardComponent,
     LoginComponent,
     BidsComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    AddOrderComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +66,7 @@ import { TokenService } from './services/token.service';
     BsNavbarService,
     BidService,
     UserService,
-    TokenService
+    TokenService,
   {
     provide:HTTP_INTERCEPTORS,
     useClass: AuthInterceptor,
